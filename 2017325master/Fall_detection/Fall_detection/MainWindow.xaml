@@ -1,0 +1,43 @@
+﻿<Window x:Class="KinectFloor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Kinect Floor" Height="700" Width="900"
+        Closing="Window_Closing">
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="Black">
+            <TextBlock Foreground="White" Margin="10" HorizontalAlignment="Left" Text="Kinect Floor Detection" />
+            <TextBlock Foreground="White" Margin="10" HorizontalAlignment="Right">
+                Distance: <Run x:Name="TblDistance" />m
+            </TextBlock>
+            <TextBlock Foreground="White" Margin="200,10,10,10" HorizontalAlignment="Center" Width="65">
+              <Run x:Name="xtext" />
+            </TextBlock>
+            <TextBlock Foreground="White" Margin="360,10,10,10" HorizontalAlignment="Center" Width="65">
+              <Run x:Name="ytext" />
+            </TextBlock>
+            <TextBlock Foreground="White" Margin="500,10,10,10" HorizontalAlignment="Center" Width="65">
+              <Run x:Name="ztext" />
+            </TextBlock>
+            <TextBlock Foreground="White" Margin="640,10,10,10" HorizontalAlignment="Center" Width="65">
+              <Run x:Name="wtext" />
+            </TextBlock>
+        </Grid>
+        <Viewbox Grid.Row="1" OpacityMask="#FFEE0E0E">
+            <Grid Width="512" Height="424">
+                <Image Name="Camera" />
+                <Canvas>
+                    <Image Name="ImgHand" Source="/Hud.png" Stretch="Uniform" Width="40" Height="40" />
+                    <Image Name="ImgFloor" Source="/Hud.png" Stretch="Fill" Width="100" Height="40" />
+                </Canvas>
+                <Image x:Name="image" />
+            </Grid>
+        </Viewbox>
+    </Grid>
+</Window>
